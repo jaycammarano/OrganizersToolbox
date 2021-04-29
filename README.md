@@ -1,8 +1,7 @@
 # Organizers Toolbox
 
 An open source option for creating and managing a
-political or social grassroots campaign. It starts a leader at the beginning
-of the creation process with a questionaire to help guide the thought process of
+political or social grassroots campaign. It starts a leader at the beginning of the creation process with a questionaire to help guide the thought process of
 
 - What is the problem?
 - Who does it affect?
