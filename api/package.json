@@ -4,6 +4,8 @@
   "description": "The backend for an api to help social organizers.",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "lint": "eslint --fix \"./src/**/*/.{js,jsx,ts,tsx,json}\"",
     "start": "node build/server.js",
     "build": "tsc -p .",
     "dev": "NODE_ENV=development tsnd --respawn src/server.ts",
