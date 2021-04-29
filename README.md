@@ -25,4 +25,4 @@ These extra tools will be created using a plugin architecture.
 
 # MVP
  - The Questionaire
- - Organization Profile
+ - Organization 
