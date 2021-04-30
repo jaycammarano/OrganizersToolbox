@@ -1,1 +1,2 @@
-Backend for an Organizers Toolbox. Written in TypeScript with Express and Node.js.
+Backend for an Organizers Toolbox. Written in TypeScript with Express and
+Node.js.
