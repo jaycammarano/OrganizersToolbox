@@ -15,8 +15,6 @@ access various tools that help them create action items,
 spread their message, and generally organize a campaign
 tailored to their needs.
 
-These extra tools will be created using a plugin architecture.
-
 # The Stack
 
 - TypeScript
