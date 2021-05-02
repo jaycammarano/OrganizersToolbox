@@ -1,11 +1,14 @@
 import '../assets/css/styles.css';
-import Layout from './Layout/Layout';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import HomePage from '../pages/HomePage';
 
 const App: React.FC = () => {
   return (
-    <Layout>
-      <h1>Hello world</h1>
-    </Layout>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 
