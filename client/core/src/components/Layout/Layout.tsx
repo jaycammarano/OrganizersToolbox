@@ -4,7 +4,7 @@ import { ILayout } from './interfaces';
 const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
   return (
     <>
-      <div className="bg-gray-100" style={{}}>
+      <div className="min-h-screen bg-gray-100" style={{}}>
         <div
           className="flex min-h-screen bg-gray-100"
           style={{ minHeight: '640px' }}
