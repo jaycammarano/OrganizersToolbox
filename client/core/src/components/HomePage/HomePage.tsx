@@ -9,6 +9,7 @@ const HomePage: React.FC = () => {
         name="Jay Cammarano"
         icon="https://avatars.githubusercontent.com/u/67079013?v=4"
         tagLine="Production Manager"
+        id={0}
       />
       <div className="px-8">
         <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
@@ -19,6 +20,7 @@ const HomePage: React.FC = () => {
         name="MCDPC"
         tagLine="Meeting drug use with compassion not fear."
         icon="../../assets/img/logo.png"
+        id={0}
       />
     </Layout>
   );

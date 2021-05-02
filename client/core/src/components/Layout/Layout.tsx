@@ -1,36 +1,37 @@
+import { Link } from 'react-router-dom';
 import { ILayout } from './interfaces';
 
 const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
   return (
     <>
-      <div className="" style={{}}>
+      <div className="bg-gray-100" style={{}}>
         <div
-          className="h-screen flex bg-gray-100"
+          className="flex min-h-screen bg-gray-100"
           style={{ minHeight: '640px' }}
         >
           <div className="flex flex-col w-64">
-            <div className="flex flex-col h-0 flex-1 border-r border-gray-200 bg-white">
-              <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+            <div className="flex flex-col flex-1 h-0 bg-white border-r border-gray-200">
+              <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
                 <div className="flex items-center flex-shrink-0 px-4">
                   <img
-                    className="h-8 w-auto"
+                    className="w-auto h-8"
                     src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
                     alt="Workflow"
                   />
                 </div>
                 <nav
-                  className="mt-5 flex-1 px-2 bg-white space-y-1"
+                  className="flex-1 px-2 mt-5 space-y-1 bg-white"
                   aria-label="Sidebar"
                 >
                   <a
                     href="/"
-                    className="bg-gray-100 text-gray-900 hover:text-gray-900 hover:bg-gray-100 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                    className="flex items-center px-2 py-2 text-sm font-medium text-gray-900 bg-gray-100 rounded-md hover:text-gray-900 hover:bg-gray-100 group"
                     data-todo-x-state-on="Current"
                     data-todo-x-state-off="Default"
                     data-todo-x-state-description='Current: "bg-gray-100 text-gray-900 hover:text-gray-900 hover:bg-gray-100", Default: "text-gray-600 hover:text-gray-900 hover:bg-gray-50"'
                   >
                     <svg
-                      className="text-gray-500 mr-3 h-6 w-6"
+                      className="w-6 h-6 mr-3 text-gray-500"
                       data-todo-x-state-on="Current"
                       data-todo-x-state-off="Default"
                       data-todo-x-state-description='Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500"'
@@ -50,14 +51,50 @@ const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
                     </svg>
                     Dashboard
                   </a>
-
-                  <a
-                    href="/"
-                    className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                  <Link
+                    to="/user/0"
+                    className="flex items-center px-2 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 group"
                     data-todo-x-state-description='undefined: "bg-gray-100 text-gray-900 hover:text-gray-900 hover:bg-gray-100", undefined: "text-gray-600 hover:text-gray-900 hover:bg-gray-50"'
                   >
                     <svg
-                      className="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                      className="w-6 h-6 mr-3 text-gray-400 group-hover:text-gray-500"
+                      data-todo-x-state-description='undefined: "text-gray-500", undefined: "text-gray-400 group-hover:text-gray-500"'
+                      data-todo-x-description="Heroicon name: outline/users"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                      />
+                    </svg>
+                    Profile
+                    <Link
+                      className="inline-block ml-auto text-xs font-medium bg-gray-100 rounded-full group-hover:bg-gray-200"
+                      to="user/profile/edit"
+                    >
+                      <span
+                        className="bg-gray-100 group-hover:bg-gray-200 hover:bg-gray-300 ml-auto inline-block py-0.5 px-3 text-xs font-medium rounded-full"
+                        data-todo-x-state-on="Current"
+                        data-todo-x-state-off="Default"
+                        data-todo-x-state-description='Current: "bg-white", Default: "bg-gray-100 group-hover:bg-gray-200"'
+                      >
+                        edit
+                      </span>
+                    </Link>
+                  </Link>{' '}
+                  <a
+                    href="/"
+                    className="flex items-center px-2 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 group"
+                    data-todo-x-state-description='undefined: "bg-gray-100 text-gray-900 hover:text-gray-900 hover:bg-gray-100", undefined: "text-gray-600 hover:text-gray-900 hover:bg-gray-50"'
+                  >
+                    <svg
+                      className="w-6 h-6 mr-3 text-gray-400 group-hover:text-gray-500"
                       data-todo-x-state-description='undefined: "text-gray-500", undefined: "text-gray-400 group-hover:text-gray-500"'
                       data-todo-x-description="Heroicon name: outline/users"
                       xmlns="http://www.w3.org/2000/svg"
@@ -83,14 +120,13 @@ const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
                       3
                     </span>
                   </a>
-
                   <a
                     href="/"
-                    className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                    className="flex items-center px-2 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 group"
                     data-todo-x-state-description='undefined: "bg-gray-100 text-gray-900 hover:text-gray-900 hover:bg-gray-100", undefined: "text-gray-600 hover:text-gray-900 hover:bg-gray-50"'
                   >
                     <svg
-                      className="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                      className="w-6 h-6 mr-3 text-gray-400 group-hover:text-gray-500"
                       data-todo-x-state-description='undefined: "text-gray-500", undefined: "text-gray-400 group-hover:text-gray-500"'
                       data-todo-x-description="Heroicon name: outline/folder"
                       xmlns="http://www.w3.org/2000/svg"
@@ -114,14 +150,13 @@ const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
                       4
                     </span>
                   </a>
-
                   <a
                     href="/"
-                    className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                    className="flex items-center px-2 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 group"
                     data-todo-x-state-description='undefined: "bg-gray-100 text-gray-900 hover:text-gray-900 hover:bg-gray-100", undefined: "text-gray-600 hover:text-gray-900 hover:bg-gray-50"'
                   >
                     <svg
-                      className="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                      className="w-6 h-6 mr-3 text-gray-400 group-hover:text-gray-500"
                       data-todo-x-state-description='undefined: "text-gray-500", undefined: "text-gray-400 group-hover:text-gray-500"'
                       data-todo-x-description="Heroicon name: outline/calendar"
                       xmlns="http://www.w3.org/2000/svg"
