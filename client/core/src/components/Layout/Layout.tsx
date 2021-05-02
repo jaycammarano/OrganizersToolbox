@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ILayout } from './interfaces';
 
 const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
@@ -50,7 +51,43 @@ const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
                     </svg>
                     Dashboard
                   </a>
-
+                  <Link
+                    to="/user/0"
+                    className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                    data-todo-x-state-description='undefined: "bg-gray-100 text-gray-900 hover:text-gray-900 hover:bg-gray-100", undefined: "text-gray-600 hover:text-gray-900 hover:bg-gray-50"'
+                  >
+                    <svg
+                      className="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                      data-todo-x-state-description='undefined: "text-gray-500", undefined: "text-gray-400 group-hover:text-gray-500"'
+                      data-todo-x-description="Heroicon name: outline/users"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                      />
+                    </svg>
+                    Profile
+                    <Link
+                      className="bg-gray-100 group-hover:bg-gray-200 ml-auto inline-block text-xs font-medium rounded-full"
+                      to="user/profile/edit"
+                    >
+                      <span
+                        className="bg-gray-100 group-hover:bg-gray-200 hover:bg-gray-300 ml-auto inline-block py-0.5 px-3 text-xs font-medium rounded-full"
+                        data-todo-x-state-on="Current"
+                        data-todo-x-state-off="Default"
+                        data-todo-x-state-description='Current: "bg-white", Default: "bg-gray-100 group-hover:bg-gray-200"'
+                      >
+                        edit
+                      </span>
+                    </Link>
+                  </Link>{' '}
                   <a
                     href="/"
                     className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
@@ -83,7 +120,6 @@ const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
                       3
                     </span>
                   </a>
-
                   <a
                     href="/"
                     className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
@@ -114,7 +150,6 @@ const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
                       4
                     </span>
                   </a>
-
                   <a
                     href="/"
                     className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
