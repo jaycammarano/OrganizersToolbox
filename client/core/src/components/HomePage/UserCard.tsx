@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import { ICard } from './interfaces';
 
-const UserCard: React.FC<ICard> = ({ name, icon, tagLine }: ICard) => {
+const UserCard: React.FC<ICard> = ({ name, icon, tagLine, id }: ICard) => {
   return (
     <div className="py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,12 +27,12 @@ const UserCard: React.FC<ICard> = ({ name, icon, tagLine }: ICard) => {
                 </div>
               </div>
               <div className="mt-5 flex justify-center sm:mt-0">
-                <a
-                  href="/"
+                <Link
+                  to={`/user/${id}`}
                   className="flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                 >
                   View profile
-                </a>
+                </Link>
               </div>
             </div>
           </div>

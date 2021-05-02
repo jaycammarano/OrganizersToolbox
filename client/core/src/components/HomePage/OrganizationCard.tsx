@@ -1,6 +1,12 @@
+import { Link } from 'react-router-dom';
 import { ICard } from './interfaces';
 
-const OrganizationCard: React.FC<ICard> = ({ name, icon, tagLine }: ICard) => {
+const OrganizationCard: React.FC<ICard> = ({
+  name,
+  icon,
+  tagLine,
+  id
+}: ICard) => {
   return (
     <div className="py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,10 +32,11 @@ const OrganizationCard: React.FC<ICard> = ({ name, icon, tagLine }: ICard) => {
             </div>
           </div>
           <div className="border-t border-gray-200 bg-gray-50 grid grid-cols-1 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
-            <div className="px-6 py-5 text-sm font-medium text-center">
-              <span className="text-gray-600"> View Profile</span>
-            </div>
-
+            <Link to={`org/${id}`}>
+              <div className="px-6 py-5 text-sm font-medium text-center">
+                <span className="text-gray-600"> View Profile</span>
+              </div>
+            </Link>
             <div className="px-6 py-5 text-sm font-medium text-center">
               <span className="text-gray-600">View Campaigns</span>
             </div>
