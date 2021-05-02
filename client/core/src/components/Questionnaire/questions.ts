@@ -16,6 +16,20 @@ class Questions {
     }
     return false;
   };
+
+  nextQuestion = (
+    setter: React.Dispatch<React.SetStateAction<number>>,
+    questionID: number
+  ): void => {
+    setter(questionID + 1);
+  };
+
+  previousQuestion = (
+    setter: React.Dispatch<React.SetStateAction<number>>,
+    questionID: number
+  ): void => {
+    setter(questionID - 1);
+  };
 }
 
 export default Questions;

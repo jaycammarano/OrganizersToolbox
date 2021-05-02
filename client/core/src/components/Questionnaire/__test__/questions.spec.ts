@@ -1,7 +1,7 @@
 import { IQuestion } from '../interfaces';
 import Questions from '../questions';
 
-const question: IQuestion = { question: 'test' };
+const question: IQuestion = { question: 'test', answerOptions: ['textField'] };
 
 it('returns true if Questions.answerQuestion is fed an valid id"', () => {
   const testObject = new Questions([question]);
