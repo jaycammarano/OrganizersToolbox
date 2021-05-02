@@ -11,8 +11,9 @@ const OrganizationCard: React.FC<ICard> = ({ name, icon, tagLine }: ICard) => {
                 <div className="flex-shrink-0">
                   <img
                     className="mx-auto h-20 w-20 rounded-full"
-                    src={icon}
-                    alt=""
+                    // eslint-disable-next-line global-require
+                    src={require('../../assets/img/logo.png')}
+                    alt={icon}
                   />
                 </div>
                 <div className="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">
@@ -22,33 +23,18 @@ const OrganizationCard: React.FC<ICard> = ({ name, icon, tagLine }: ICard) => {
                   <p className="text-sm font-medium text-gray-600">{tagLine}</p>
                 </div>
               </div>
-              <div className="mt-5 flex justify-center sm:mt-0">
-                <a
-                  href="/"
-                  className="flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-                >
-                  View profile
-                </a>
-              </div>
             </div>
           </div>
           <div className="border-t border-gray-200 bg-gray-50 grid grid-cols-1 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
             <div className="px-6 py-5 text-sm font-medium text-center">
-              <span className="text-gray-900">12</span>
-              {/* space */}
-              <span className="text-gray-600"> Upcoming Tasks</span>
+              <span className="text-gray-600"> View Profile</span>
             </div>
 
             <div className="px-6 py-5 text-sm font-medium text-center">
-              <span className="text-gray-900">4</span>
-              {/* space */}
-              <span className="text-gray-600"> Tasks Due Today</span>
+              <span className="text-gray-600">View Campaigns</span>
             </div>
-
             <div className="px-6 py-5 text-sm font-medium text-center">
-              <span className="text-gray-900">2</span>
-              {/* space */}
-              <span className="text-gray-600"> Overdue Tasks</span>
+              <span className="text-gray-600">View Members</span>
             </div>
           </div>
         </div>

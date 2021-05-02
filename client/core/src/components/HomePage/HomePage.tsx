@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
       <OrganizationCard
         name="MCDPC"
         tagLine="Meeting drug use with compassion not fear."
-        icon="https://avatars.githubusercontent.com/u/67079013?v=4"
+        icon="../../assets/img/logo.png"
       />
     </Layout>
   );
