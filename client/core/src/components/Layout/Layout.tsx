@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ILayout } from './interfaces';
+import toolbox from '../../assets/img/toolboxlogo.png';
 
 const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
   return (
@@ -13,11 +14,7 @@ const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
             <div className="flex flex-col flex-1 h-0 bg-white border-r border-gray-200">
               <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
                 <div className="flex items-center flex-shrink-0 px-4">
-                  <img
-                    className="w-auto h-8"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
-                    alt="Workflow"
-                  />
+                  <img className="w-auto h-8" src={toolbox} alt="Workflow" />
                 </div>
                 <nav
                   className="flex-1 px-2 mt-5 space-y-1 bg-white"
