@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HomePage from './HomePage/HomePage';
 import UserProfile from './UserProfile/UserProfile';
 import OrgProfile from './OrgProfile/OrgProfile';
-import UserSignUp from './UserSignUp/UserSignUp';
+import UserSignUp from './UserSignUpPage/UserSignUp';
 
 const App: React.FC = () => {
   return (
