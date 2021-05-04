@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import pool from '../config/db';
 
 class User {
+  
   bcryptPassword = async (password: string) => {
     const saltRound = 10;
     const salt = await bcrypt.genSalt(saltRound);
