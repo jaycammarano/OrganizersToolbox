@@ -1,12 +1,8 @@
 import express, { json, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
-import passport from 'passport';
 import config, { SERVER_NAMESPACE } from './config/config';
 import logging from './config/logging';
 import router from './routes/user';
-
-// Pass the global passport object into the configuration function
-// require('./config/passport')(passport);
 
 const app = express();
 
@@ -18,11 +14,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
   next();
 });
-
-// This will initialize the passport object on every request
-app.use(passport.initialize());
-
-// Instead of using body-parser middleware, use the new Express implementation of the same thing
 
 /** Middleware */
 app.use(json());
