@@ -9,8 +9,8 @@ class MockDB implements Database {
 
   insertRow = (
     tableName: string,
-    row: { [key: string]: any }
-  ): { [key: string]: any } => {
+    row: any
+  ) => {
     if (tableName && row) {
       return row;
     }
@@ -20,9 +20,9 @@ class MockDB implements Database {
   selectAll = (
     tableName: string,
     params: { [key: string]: any }
-  ): [{ [key: string]: any }] => {
+  ): any => {
     if (tableName && params) {
-      return [{}];
+      return [params];
     }
     return [{ error: 'either tableName or params is unspecified' }];
   };

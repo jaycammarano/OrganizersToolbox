@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Router, Request, Response, NextFunction } from 'express';
-import register from '../controllers/user';
+import {login, register} from '../controllers/user';
 
 const router = Router();
 
@@ -11,10 +11,7 @@ router.get(
 );
 
 // TODO
-router.post(
-  '/login',
-  (_req: Request, _res: Response, _next: NextFunction) => {}
-);
+router.post('/login',login);
 
 router.post('/register', register);
 

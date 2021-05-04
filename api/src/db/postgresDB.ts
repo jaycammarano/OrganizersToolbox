@@ -16,7 +16,7 @@ class PostgresDB implements Database {
 
   insertRow = async (
     tableName: string,
-    row: { [key: string]: any }
+    row: any
   ): Promise<any> => {
     const columns = Object.keys(row).filter((key) => key !== 'id');
     let i: number = 0;
@@ -42,7 +42,7 @@ class PostgresDB implements Database {
     params: { [key: string]: any }
   ): Promise<any[]> => {
     const column = Object.keys(params)[0];
-    const value = params.colummn;
+    const value = Object.values(params)[0];
     const query = await this.connector.query(
       `SELECT * from ${tableName} WHERE ${column} = $1`,
       [value]

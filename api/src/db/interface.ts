@@ -5,17 +5,14 @@ export interface IError {
   error_code: string;
 }
 
-type MockRow = {
-  [key: string]: any;
-};
 
 interface Database<TData = unknown> {
   connector: Pool | string;
-  insertRow: (tableName: string, row: MockRow) => Promise<TData> | MockRow;
+  insertRow: (tableName: string, row: TData) => Promise<TData> | TData
   selectAll: (
     tableName: string,
-    params: MockRow
-  ) => Promise<TData[]> | MockRow[];
+    params: { [key: string]: any }
+  ) => Promise<TData[]> | TData[]
 }
 
 export default Database;

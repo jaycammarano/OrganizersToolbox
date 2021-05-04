@@ -29,7 +29,7 @@ app.use(json());
 app.use(cors());
 
 /** Routes go here */
-app.use('/auth', router);
+app.use('/users', router);
 
 app.listen(config.server.port, () => {
   logging.info(
