@@ -1,11 +1,11 @@
-import { Pool, QueryResult } from 'pg';
+import { Pool } from 'pg';
 
 interface Database {
-  connector: Pool;
+  connector: Pool | string;
   insertRow: (
     tableName: string,
     row: { [key: string]: any }
-  ) => Promise<QueryResult<any>> | void;
+  ) => Promise<any> | { [key: string]: any; };
 }
 
 export default Database;

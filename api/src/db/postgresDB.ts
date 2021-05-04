@@ -1,4 +1,4 @@
-import { Pool, QueryResult } from 'pg';
+import { Pool } from 'pg';
 import Database from './interface';
 
 class PostgresDB implements Database {
@@ -17,7 +17,7 @@ class PostgresDB implements Database {
   insertRow = async (
     tableName: string,
     row: { [key: string]: any }
-  ): Promise<QueryResult<any>> => {
+  ): Promise<any> => {
     const columns = Object.keys(row).filter((key) => key !== 'id');
     let i: number = 0;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
