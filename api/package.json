@@ -12,7 +12,6 @@
     "dev:debug": "tsnd --respawn src/server.ts",
     "test": "jest -w"
   },
-  "type": "module",
   "author": "@jaycammarano",
   "license": "ISC",
   "devDependencies": {
