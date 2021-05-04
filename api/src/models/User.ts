@@ -4,10 +4,10 @@ import bcrypt from 'bcryptjs';
 import Database from '../db/interface';
 
 class User {
-  db: Database
+  db: Database;
 
-  constructor(db: Database){
-    this.db = db
+  constructor(db: Database) {
+    this.db = db;
   }
 
   bcryptPassword = async (password: string) => {
@@ -31,7 +31,7 @@ class User {
   // };
 
   registerUser = async (username: string, password: string) => {
-    const rows = {user_name: username, user_password: password}
+    const rows = { user_name: username, user_password: password };
     try {
       const user = await this.db.insertRow('users', rows);
       if (user.severity) {

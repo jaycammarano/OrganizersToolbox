@@ -1,7 +1,7 @@
-import {config} from "dotenv"
+import { config } from 'dotenv';
 import PostgresDB from '../postgresDB';
 
-config()
+config();
 
 const connectionString = process.env.DATABASE_URL || '';
 
@@ -12,5 +12,5 @@ it('inserts a row to a testDB', async () => {
     user_id: expect.any(String),
     user_name: expect.any(String),
     user_password: expect.any(String)
-  })
+  });
 });

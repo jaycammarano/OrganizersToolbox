@@ -22,5 +22,5 @@ export default config;
 export { SECRET, SERVER_NAMESPACE };
 
 // CONFIG DB
-const connectionString = process.env.DATABASE_URL || ''
-export const pool = new PostgresDB(connectionString)
+const connectionString = process.env.DATABASE_URL || '';
+export const pool = new PostgresDB(connectionString);
