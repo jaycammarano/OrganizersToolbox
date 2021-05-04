@@ -15,4 +15,11 @@ it('inserts a row to a testDB', async () => {
   });
 });
 
-it('returns all selected rows from a  db', async () => {});
+it('returns all selected rows from a  db', async () => {
+  const rows = await db.selectAll('users', {user_name: 'test'})
+  expect(rows[0]).toMatchObject({
+    user_id: expect.any(String),
+    user_name: expect.any(String),
+    user_password: expect.any(String)
+  });
+})

@@ -8,7 +8,7 @@ export interface IError {
 
 interface Database<TData = unknown> {
   connector: Pool | string;
-  insertRow: (tableName: string, row: { [key: string]: any }) => Promise<TData> | TData
+  insertRow: (tableName: string, row: TData) => Promise<TData> | TData
   selectAll: (
     tableName: string,
     params: { [key: string]: any }
