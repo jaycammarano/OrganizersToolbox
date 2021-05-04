@@ -1,2 +1,39 @@
-import express from "express"
+import express, { json, Request, Response, NextFunction } from 'express';
+import cors from 'cors';
+import passport from 'passport';
+import config, { SERVER_NAMESPACE } from './config/config';
+import logging from './config/logging';
+import router from './routes/user';
 
+// Pass the global passport object into the configuration function
+// require('./config/passport')(passport);
+
+const app = express();
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+  logging.info(
+    `METHOD: [${req.method}] - URL: [${req.url}] - STATUS: [${res.statusCode}] - IP: [${req.socket.remoteAddress}]`,
+    SERVER_NAMESPACE
+  );
+
+  next();
+});
+
+// This will initialize the passport object on every request
+app.use(passport.initialize());
+
+// Instead of using body-parser middleware, use the new Express implementation of the same thing
+
+/** Middleware */
+app.use(json());
+app.use(cors());
+
+/** Routes go here */
+app.use('/auth', router);
+
+app.listen(config.server.port, () => {
+  logging.info(
+    SERVER_NAMESPACE,
+    `Server is running ${config.server.hostname}:${config.server.port}`
+  );
+});
