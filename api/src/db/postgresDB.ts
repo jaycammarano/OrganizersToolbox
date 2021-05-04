@@ -19,17 +19,13 @@ class PostgresDB implements Database {
     row: { [key: string]: any }
   ): Promise<QueryResult<any>> => {
     const columns = Object.keys(row).filter((key) => key !== 'id');
-    console.log(`columns ${columns}`);
     let i: number = 0;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const valueMap = columns.map((_key) => {
       i += 1;
       return `$${i}`;
     });
-
-    console.log(`valuesmap ${valueMap}`);
     const values = columns.map((key) => row[key]);
-    console.log(`values ${values}`);
     const newRow = await this.connector.query(
       `INSERT INTO ${tableName} (${columns}) VALUES (${valueMap}) RETURNING *`,
       values
