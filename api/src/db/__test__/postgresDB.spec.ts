@@ -14,3 +14,5 @@ it('inserts a row to a testDB', async () => {
     user_password: expect.any(String)
   });
 });
+
+it('returns all selected rows from a  db', async () => {});

@@ -1,11 +1,21 @@
 import { Pool } from 'pg';
 
-interface Database {
+export interface IError {
+  severity: string;
+  error_code: string;
+}
+
+type MockRow = {
+  [key: string]: any;
+};
+
+interface Database<TData = unknown> {
   connector: Pool | string;
-  insertRow: (
+  insertRow: (tableName: string, row: MockRow) => Promise<TData> | MockRow;
+  selectAll: (
     tableName: string,
-    row: { [key: string]: any }
-  ) => Promise<any> | { [key: string]: any };
+    params: MockRow
+  ) => Promise<TData[]> | MockRow[];
 }
 
 export default Database;

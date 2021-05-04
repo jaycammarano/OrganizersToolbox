@@ -30,7 +30,24 @@ class PostgresDB implements Database {
       `INSERT INTO ${tableName} (${columns}) VALUES (${valueMap}) RETURNING *`,
       values
     );
+    if (newRow.rows[0].severity) {
+      const error = new Error(newRow.rows[0].code);
+      throw error;
+    }
     return newRow.rows[0];
+  };
+
+  selectAll = async (
+    tableName: string,
+    params: { [key: string]: any }
+  ): Promise<any[]> => {
+    const column = Object.keys(params)[0];
+    const value = params.colummn;
+    const query = await this.connector.query(
+      `SELECT * from ${tableName} WHERE ${column} = $1`,
+      [value]
+    );
+    return query.rows;
   };
 }
 

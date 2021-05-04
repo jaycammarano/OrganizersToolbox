@@ -16,6 +16,16 @@ class MockDB implements Database {
     }
     return { error: 'either tableName or Row unspecified' };
   };
+
+  selectAll = (
+    tableName: string,
+    params: { [key: string]: any }
+  ): [{ [key: string]: any }] => {
+    if (tableName && params) {
+      return [{}];
+    }
+    return [{ error: 'either tableName or params is unspecified' }];
+  };
 }
 
 export default MockDB;
