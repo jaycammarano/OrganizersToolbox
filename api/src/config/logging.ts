@@ -44,7 +44,6 @@ const debug = (namespace: string, message: string, object?: any) => {
   }
 };
 
-
 export default {
   info,
   warn,
