@@ -1,7 +1,4 @@
-// import { VerifiedCallback } from 'passport-jwt';
 import bcrypt from 'bcryptjs';
-import { VerifiedCallback } from 'passport-jwt';
-// import { pool } from "../config/config"
 import Database from '../db/interface';
 import IUser from './interface';
 
@@ -18,15 +15,12 @@ class User<Type extends Database<IUser>> {
     return bcrypt.hash(password, salt);
   };
 
-  findOne = async (id: any, done: VerifiedCallback) => {
+  findOne = async (user_name: any): Promise<IUser> => {
     try {
-      const user = await this.db.selectAll('users', { id });
-      if (user) {
-        return done(null, user[0]);
-      }
-      return done(null, false);
+      const users = await this.db.selectAll('users', { user_name });
+      return users[0]
     } catch (err) {
-      return done(err, false);
+      return err
     }
   };
 
@@ -42,5 +36,11 @@ class User<Type extends Database<IUser>> {
       return new Error(err);
     }
   };
+
+  validPassword = async (
+    dbPassword: string,
+    clientPassword: string
+  ) => bcrypt.compare(clientPassword, dbPassword);
+
 }
 export default User;
