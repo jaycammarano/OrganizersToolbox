@@ -6,7 +6,7 @@ config()
 const connectionString = process.env.DATABASE_URL || '';
 
 const db = new PostgresDB(connectionString);
-it('inserts a row', async () => {
+it('inserts a row to a testDB', async () => {
   const rows = { user_name: 'test', user_password: 'testpassword' };
   expect(await db.insertRow('users', rows)).toMatchObject({
     user_id: expect.any(String),
