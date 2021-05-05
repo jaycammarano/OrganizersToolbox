@@ -15,10 +15,8 @@ class SignUp {
 
       const parseResponse = await response.json();
       const { token } = parseResponse;
-      console.log(parseResponse);
       if (typeof token === 'string') {
         localStorage.setItem('token', parseResponse.token);
-        console.log('hello');
       }
       return true;
     } catch (err) {
