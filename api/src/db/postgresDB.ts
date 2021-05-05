@@ -14,10 +14,7 @@ class PostgresDB implements Database {
     });
   }
 
-  insertRow = async (
-    tableName: string,
-    row: any
-  ): Promise<any> => {
+  insertRow = async (tableName: string, row: any): Promise<any> => {
     const columns = Object.keys(row).filter((key) => key !== 'id');
     let i: number = 0;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

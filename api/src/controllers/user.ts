@@ -31,17 +31,24 @@ const register = async (req: Request, res: Response) => {
   }
 };
 
-const login = async (req: Request, res: Response, next: NextFunction): Promise<boolean>  => {
+const login = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<boolean> => {
   try {
-    const newUser = new User(pool)
-    const user = await newUser.findOne(req.body.user_name)
-    if(!user) {
-      res.status(401).json({ success: false, msg: 'User not found'})
-      return false
+    const newUser = new User(pool);
+    const user = await newUser.findOne(req.body.user_name);
+    if (!user) {
+      res.status(401).json({ success: false, msg: 'User not found' });
+      return false;
     }
 
-    const isValidPW = newUser.validPassword(user.user_password, req.body.user_password)
-    if (isValidPW){
+    const isValidPW = newUser.validPassword(
+      user.user_password,
+      req.body.user_password
+    );
+    if (isValidPW) {
       const jwt = issueJWT(user.user_name);
       res.json({
         success: true,
@@ -49,15 +56,16 @@ const login = async (req: Request, res: Response, next: NextFunction): Promise<b
         token: jwt.token,
         expiresIn: jwt.expires
       });
-      return true
+      return true;
     }
-      res.status(401).json({ success: false, msg: 'Incorrect username or password'})
-      return false
-    
+    res
+      .status(401)
+      .json({ success: false, msg: 'Incorrect username or password' });
+    return false;
   } catch (error) {
-      next(error)
-      return false
+    next(error);
+    return false;
   }
-}
+};
 
-export {register, login};
+export { register, login };

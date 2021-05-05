@@ -4,10 +4,12 @@ import User from '../User';
 const mockDB = new MockDB();
 const newUser = new User(mockDB);
 it('registers a new user', async () => {
-  expect(await newUser.registerUser('test', 'test')).toBe('test');
+  expect(
+    await newUser.registerUser('test', 'test', 'test', 'test', 'testbio')
+  ).toBe('test');
 });
 
 it('returns a user', async () => {
-  const user = await newUser.findOne('test')
-  expect(user).toMatchObject({user_name: expect.any(String),})
-})
+  const user = await newUser.findOne('test');
+  expect(user).toMatchObject({ user_name: expect.any(String) });
+});
