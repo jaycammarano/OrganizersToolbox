@@ -1,20 +1,20 @@
 import { NextFunction, Request, Response } from 'express';
 import { pool } from '../config/config';
-import { issueJWT } from '../lib/utils';
+import issueJWT from '../lib/utils';
 import User from '../models/User';
 
 const register = async (req: Request, res: Response) => {
   try {
     const newUser = new User(pool);
     const password = await newUser.bcryptPassword(req.body.password);
-    const user = await newUser.registerUser(req.body.user_name, password);
+    const user = await newUser.registerUser(req.body.user_name, password, req.body.first_name, req.body.last_name, req.body.bio);
 
-    if (typeof user === 'string') {
+    if (user) {
       const jwt = issueJWT(user);
 
       res.json({
         success: true,
-        username: user,
+        user,
         token: jwt.token,
         expiresIn: jwt.expires
       });

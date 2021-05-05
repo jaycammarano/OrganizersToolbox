@@ -6,7 +6,7 @@ const newUser = new User(mockDB);
 it('registers a new user', async () => {
   expect(
     await newUser.registerUser('test', 'test', 'test', 'test', 'testbio')
-  ).toBe('test');
+  ).toStrictEqual({"bio": "testbio", "first_name": "test", "last_name": "test", "user_name": "test", "user_password": "test"});
 });
 
 it('returns a user', async () => {

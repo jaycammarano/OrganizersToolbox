@@ -30,7 +30,7 @@ class User<Type extends Database<IUser>> {
     first_name: string,
     last_name: string,
     bio: string
-  ): Promise<string | Error> => {
+  ): Promise<IUser | Error> => {
     const rows = {
       user_name: username,
       user_password: password,
@@ -40,7 +40,7 @@ class User<Type extends Database<IUser>> {
     };
     try {
       const user = await this.db.insertRow('users', rows);
-      return user.user_name;
+      return user;
     } catch (err) {
       return new Error(err);
     }
