@@ -29,14 +29,12 @@ class User<Type extends Database<IUser>> {
     password: string,
     first_name: string,
     last_name: string,
-    bio: string
   ): Promise<IUser | Error> => {
     const rows = {
       user_name: username,
       user_password: password,
       first_name,
       last_name,
-      bio
     };
     try {
       const user = await this.db.insertRow('users', rows);

@@ -4,11 +4,12 @@ import issueJWT from '../lib/utils';
 import User from '../models/User';
 
 const register = async (req: Request, res: Response) => {
+  console.log(req.body)
   try {
     const newUser = new User(pool);
     const password = await newUser.bcryptPassword(req.body.password);
-    const user = await newUser.registerUser(req.body.user_name, password, req.body.first_name, req.body.last_name, req.body.bio);
-
+    const user = await newUser.registerUser(req.body.user_name, password, req.body.first_name, req.body.last_name);
+    
     if (user) {
       const jwt = issueJWT(user);
 

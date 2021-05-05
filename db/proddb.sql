@@ -11,5 +11,5 @@ CREATE TABLE users(
     user_password VARCHAR(255) NOT NULL,
     first_name VARCHAR(255) NOT NUll,
     last_name VARCHAR(255) NOT NULL,
-    bio VARCHAR(1024) NOT NULL
+    bio VARCHAR(1024)
 );

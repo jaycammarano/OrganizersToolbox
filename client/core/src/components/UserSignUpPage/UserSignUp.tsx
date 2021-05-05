@@ -5,15 +5,19 @@ import Layout from '../Layout/UnAuthedLayout';
 import SignUp from './signUp';
 
 const UserSignUp: React.FC = () => {
-  const [personalInformation, setPersonalInformatio] = useState({
+  const [personalInformation, setPersonalInformation] = useState({
     first_name: '',
     last_name: '',
-    email_address: ''
+    user_name: '',
+    password: ''
   });
+
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const [profile, setProfile] = useState({
     bio: '',
     photo: ''
   });
+
   const signUp = new SignUp();
 
   return (
@@ -29,7 +33,7 @@ const UserSignUp: React.FC = () => {
                       Personal Information
                     </h3>
                     <p className="mt-1 text-sm text-gray-600">
-                      Use a permanent address where you can receive mail.
+                      Required for sign up.
                     </p>
                   </div>
                 </div>
@@ -50,6 +54,13 @@ const UserSignUp: React.FC = () => {
                               First name
                             </label>
                             <input
+                              onChange={(e) =>
+                                signUp.onChangeHandler(
+                                  e,
+                                  setPersonalInformation,
+                                  personalInformation
+                                )
+                              }
                               type="text"
                               name="first_name"
                               id="first_name"
@@ -65,6 +76,13 @@ const UserSignUp: React.FC = () => {
                               Last name
                             </label>
                             <input
+                              onChange={(e) =>
+                                signUp.onChangeHandler(
+                                  e,
+                                  setPersonalInformation,
+                                  personalInformation
+                                )
+                              }
                               type="text"
                               name="last_name"
                               id="last_name"
@@ -75,16 +93,44 @@ const UserSignUp: React.FC = () => {
 
                           <div className="col-span-6 sm:col-span-4">
                             <label
-                              htmlFor="email_address"
+                              htmlFor="user_name"
                               className="block text-sm font-medium text-gray-700"
                             >
                               Email address
                             </label>
                             <input
+                              onChange={(e) =>
+                                signUp.onChangeHandler(
+                                  e,
+                                  setPersonalInformation,
+                                  personalInformation
+                                )
+                              }
                               type="text"
-                              name="email_address"
-                              id="email_address"
+                              name="user_name"
+                              id="user_name"
                               autoComplete="email"
+                              className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            />
+                          </div>
+                          <div className="col-span-6 sm:col-span-4">
+                            <label
+                              htmlFor="password"
+                              className="block text-sm font-medium text-gray-700"
+                            >
+                              Password
+                            </label>
+                            <input
+                              onChange={(e) =>
+                                signUp.onChangeHandler(
+                                  e,
+                                  setPersonalInformation,
+                                  personalInformation
+                                )
+                              }
+                              type="password"
+                              name="password"
+                              id="password"
                               className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             />
                           </div>

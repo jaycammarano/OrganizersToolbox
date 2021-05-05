@@ -4,6 +4,6 @@ type IUser = {
   user_password: string;
   first_name: string;
   last_name: string;
-  bio: string;
+  bio?: string;
 };
 export default IUser;
