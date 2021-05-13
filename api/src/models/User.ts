@@ -18,29 +18,33 @@ class User<Type extends Database<IUser>> {
   findOne = async (user_name: any): Promise<IUser> => {
     try {
       const users = await this.db.selectAll('users', { user_name });
-      return users[0]
+      return users[0];
     } catch (err) {
-      return err
+      return err;
     }
   };
 
   registerUser = async (
     username: string,
-    password: string
-  ): Promise<string | Error> => {
-    const rows = { user_name: username, user_password: password };
+    password: string,
+    first_name: string,
+    last_name: string,
+  ): Promise<IUser | Error> => {
+    const rows = {
+      user_name: username,
+      user_password: password,
+      first_name,
+      last_name,
+    };
     try {
       const user = await this.db.insertRow('users', rows);
-      return user.user_name;
+      return user;
     } catch (err) {
       return new Error(err);
     }
   };
 
-  validPassword = async (
-    dbPassword: string,
-    clientPassword: string
-  ) => bcrypt.compare(clientPassword, dbPassword);
-
+  validPassword = async (dbPassword: string, clientPassword: string) =>
+    bcrypt.compare(clientPassword, dbPassword);
 }
 export default User;

@@ -1,4 +1,4 @@
-import Layout from './Layout';
+import Layout from '../Layout/UnAuthedLayout';
 import toolbox from '../../assets/img/toolboxlogo.png';
 
 const LandingPage: React.FC = () => {

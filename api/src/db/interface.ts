@@ -5,14 +5,13 @@ export interface IError {
   error_code: string;
 }
 
-
 interface Database<TData = unknown> {
   connector: Pool | string;
-  insertRow: (tableName: string, row: TData) => Promise<TData> | TData
+  insertRow: (tableName: string, row: TData) => Promise<TData> | TData;
   selectAll: (
     tableName: string,
     params: { [key: string]: any }
-  ) => Promise<TData[]> | TData[]
+  ) => Promise<TData[]> | TData[];
 }
 
 export default Database;

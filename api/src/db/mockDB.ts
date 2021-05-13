@@ -7,20 +7,14 @@ class MockDB implements Database {
     this.connector = '';
   }
 
-  insertRow = (
-    tableName: string,
-    row: any
-  ) => {
+  insertRow = (tableName: string, row: any) => {
     if (tableName && row) {
       return row;
     }
     return { error: 'either tableName or Row unspecified' };
   };
 
-  selectAll = (
-    tableName: string,
-    params: { [key: string]: any }
-  ): any => {
+  selectAll = (tableName: string, params: { [key: string]: any }): any => {
     if (tableName && params) {
       return [params];
     }

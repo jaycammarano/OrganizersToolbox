@@ -1,4 +1,4 @@
-# Organizers Toolbox
+# tool.box
 
 An open source option for creating and managing a
 political or social grassroots campaign. It starts a leader at the beginning of the creation process with a questionaire to help guide the thought process of
@@ -7,7 +7,7 @@ political or social grassroots campaign. It starts a leader at the beginning of 
 - Who does it affect?
 - What action is the org trying to take?
 
-These will be used to help guide a user through writing a mission statement
+These will be used to help a user all the way through writing a mission statement
 and creating their first campaign.
 
 After completing their profile users will be able to
@@ -24,7 +24,6 @@ tailored to their needs.
 
 # MVP
 
-- Core site
-  - Header / Footer
-  - Side Bar
-  - Base Class to register plugins
+- Simple auth through Passport
+- User and organization profiles
+- Questionnaire

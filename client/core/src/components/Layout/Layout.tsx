@@ -6,10 +6,7 @@ const Layout: React.FC<ILayout> = ({ children }: ILayout) => {
   return (
     <>
       <div className="min-h-screen bg-gray-100" style={{}}>
-        <div
-          className="flex min-h-screen bg-gray-100"
-          style={{ minHeight: '640px' }}
-        >
+        <div className="flex min-h-screen bg-gray-100">
           <div className="flex flex-col w-64">
             <div className="flex flex-col flex-1 h-0 bg-white border-r border-gray-200">
               <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
